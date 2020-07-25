@@ -10,17 +10,17 @@ import React, { Component } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
-  Image,
   View,
   Text,
   StatusBar,
   TextInput,
   TouchableOpacity,
-  FlatList
+  FlatList,
+  Image
 } from 'react-native';
 import axios from 'axios'
 import { SvgUri } from 'react-native-svg';
-
+import Svg from 'react-native-svg';
 
 class App extends Component {
 
@@ -84,12 +84,12 @@ class App extends Component {
         <View style={styles.tableColumn}>
           <Text>{'(' + item.latlng[0] + ',' + item.latlng[1] + ')'}</Text>
         </View>
-        <View style={{ width: '20%' }}>
-          {/* <SvgUri
-          width="20%"
-          height='5%'
-          uri={item.flag}
-        /> */}
+        <View style={styles.tableColumn}>
+          <Svg width="50" height="30">
+            <SvgUri
+              uri={item.flag}
+            />
+          </Svg>
         </View>
         <TouchableOpacity style={styles.tableColumn} onPress={() => this.capitalWeatherClick(item.capital)}>
           <Text style={{ fontWeight: '600' }}>Capital Weather</Text>
